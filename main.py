@@ -105,9 +105,19 @@ def verify_check_digit(l_card):
 
 if __name__ == "__main__":
     # main program
-    ''' print("Main Program")
+    print("Main Program")
     print('{:^50}'.format('Linda Hall'))
     print('{:^50}'.format('Library Card Check'))
     print('='*50)
 
-    l_card = ('Enter Library Card. Hit Enter to Exit ==>')'''
+    l_card = input('Enter Library Card. Hit Enter to Exit ==>')
+    if(l_card == ''):
+        quit()
+    else:
+        if(verify_check_digit(l_card)[0] == False):
+            print("Library Card is Invalid")
+            print(verify_check_digit(l_card))
+        else:
+            print("Library Card is Valid")
+            print(f"The card belongs to a student in {get_school(l_card)}")
+            print(f"The card belongs to a {get_grade(l_card)}")
